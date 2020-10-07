@@ -23,11 +23,10 @@ with open('orders.json') as f:
         daily_rate = json.loads(r.text).get('rates').get('CAD')
         order['currency_rate'] = daily_rate
         print(order)
-        print(order.get('customer').get('id'))
 
         # dump the data along with currency rate into JSON file
         # with open('orders_exchange.json', 'w') as outfile:
-        # json.dump(order_data, outfile)
+        #   json.dump(order_data, outfile)
 
         # check whether the customer already exists in sqlite DB
         c.execute('SELECT * FROM customer WHERE id = ?', (order.get('customer').get('id'),))
